@@ -2,6 +2,8 @@ package ticket.booking.services;
 
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
+
+import ticket.booking.entities.Train;
 import ticket.booking.entities.User;
 import ticket.booking.utils.UserServiceUtil;
 
@@ -74,6 +76,13 @@ public class UserBookingService {
         } else {
             System.out.println("No ticket found with id: " + ticketId);
             return Boolean.FALSE;
+        }
+    }
+
+    public List<Train> getTrains(String source, String destination) {
+        try{
+            TrainService trainService = new TrainService();
+            return trainService.searchTrains(source, destination);
         }
     }
 

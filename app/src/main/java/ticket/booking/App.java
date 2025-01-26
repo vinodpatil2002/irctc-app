@@ -20,7 +20,7 @@ public class App {
         int option = 0;
         UserBookingService userBookingService;
         try {
-            userBookingService = new UserBookingService(null)
+            userBookingService = new UserBookingService();
         } catch (Exception e) {
             System.err.println("There is something wrong");
             return;
@@ -41,7 +41,9 @@ public class App {
                     String nameToSignUp = s.next();
                     System.out.println("Enter password");
                     String passwordToSignUp = s.next();
-                    User userToSignUp = new User(nameToSignUp,passwordToSignUp,UserServiceUtil.hashPassword(passwordToSignUp),new ArrayList<>(),UUID.randomUUID().toString());
+                    User userToSignUp = new User(nameToSignUp, passwordToSignUp,
+                            UserServiceUtil.hashPassword(passwordToSignUp), new ArrayList<>(),
+                            UUID.randomUUID().toString());
                     userBookingService.signUp(userToSignUp);
                     break;
                 case 2:
@@ -49,7 +51,9 @@ public class App {
                     String usernameToLogin = s.next();
                     System.out.println("Enter your password");
                     String passwordToLogin = s.next();
-                    User userToLogin = new User(usernameToLogin,passwordToLogin,UserServiceUtil.hashPassword(passwordToLogin),new ArrayList<>(),UUID.randomUUID().toString());
+                    User userToLogin = new User(usernameToLogin, passwordToLogin,
+                            UserServiceUtil.hashPassword(passwordToLogin), new ArrayList<>(),
+                            UUID.randomUUID().toString());
                     try {
                         userBookingService = new UserBookingService(userToLogin);
                     } catch (Exception e) {
@@ -61,13 +65,13 @@ public class App {
                     System.out.println("These are your bookings");
                     userBookingService.fetchBooking();
                     break;
-                // case 4:
-                //     System.out.println("Booking: ");
-                //     System.out.println("Enter your source station: ");
-                //     String source = s.next();
-                //     System.out.println("Enter your destination station: ");
-                //     String destination = s.next();
-                //     List<Train> trains = userBookingService.getTrains(source,destination)
+                case 4:
+                    System.out.println("Booking: ");
+                    System.out.println("Enter your source station: ");
+                    String source = s.next();
+                    System.out.println("Enter your destination station: ");
+                    String destination = s.next();
+                    List<Train> trains = userBookingService.getTrains(source,destination)
 
                 default:
                     break;
