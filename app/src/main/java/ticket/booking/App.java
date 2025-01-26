@@ -4,9 +4,11 @@
 package ticket.booking;
 
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 import java.util.UUID;
 
+import ticket.booking.entities.Train;
 import ticket.booking.entities.User;
 import ticket.booking.services.UserBookingService;
 import ticket.booking.utils.UserServiceUtil;
@@ -54,6 +56,19 @@ public class App {
                         System.err.println("Maybe there are some error bruh!");
                         return;
                     }
+                    break;
+                case 3:
+                    System.out.println("These are your bookings");
+                    userBookingService.fetchBooking();
+                    break;
+                // case 4:
+                //     System.out.println("Booking: ");
+                //     System.out.println("Enter your source station: ");
+                //     String source = s.next();
+                //     System.out.println("Enter your destination station: ");
+                //     String destination = s.next();
+                //     List<Train> trains = userBookingService.getTrains(source,destination)
+
                 default:
                     break;
             }
