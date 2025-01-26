@@ -23,11 +23,27 @@ public class UserBookingService {
         });
     }
 
-    public boolean loginUser(){
-        Optional<User> foundUser = userList.stream().filter(user->{
-            return user.getName().equals(user.getName()) && UserServiceUtil.checkPassword(user.getPassword(), user.getHashedPassword());
+    public boolean loginUser() {
+        Optional<User> foundUser = userList.stream().filter(user -> {
+            return user.getName().equals(user.getName())
+                    && UserServiceUtil.checkPassword(user.getPassword(), user.getHashedPassword());
         }).findFirst();
         return foundUser.isPresent();
     }
-    
+
+    public boolean signUp(User user) {
+        try {
+            userList.add(user);
+            saveUserListToFile();
+            return Boolean.TRUE;
+        } catch (Exception e) {
+            return Boolean.FALSE;
+        }
+    }
+
+    public void saveUserListToFile() throws IOException {
+        File usersFile = new File(USERS_PATH);
+        object_mapper.writeValue(usersFile, userList);
+    }
+
 }
