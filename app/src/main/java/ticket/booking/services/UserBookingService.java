@@ -80,10 +80,13 @@ public class UserBookingService {
     }
 
     public List<Train> getTrains(String source, String destination) {
-        try{
+        try {
             TrainService trainService = new TrainService();
             return trainService.searchTrains(source, destination);
+        } catch (Exception e) {
+            return null;
         }
+
     }
 
 }
