@@ -62,4 +62,8 @@ public class Train {
         return String.format("Train Id: %s Train No: %s", trainId, trainNo);
     }
 
+    public void setSeats(List<List<Integer>> seats) {
+        this.seats = seats;
+    }
+
 }

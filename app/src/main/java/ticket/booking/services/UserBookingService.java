@@ -65,6 +65,7 @@ public class UserBookingService {
         Scanner s = new Scanner(System.in);
         System.out.println("Enter your ticket Id to cancel");
         ticketId = s.next();
+        s.close();
         if (ticketId == null || ticketId.isEmpty()) {
             System.out.println("TicketId cannot be empty");
             return Boolean.FALSE;
@@ -86,7 +87,31 @@ public class UserBookingService {
         } catch (Exception e) {
             return null;
         }
+    }
 
+    public List<List<Integer>> fetchSeats(Train train) {
+        return train.getSeats();
+    }
+
+    public Boolean bookTrainSeat(Train train, int row, int column) {
+        try {
+            TrainService trainService = new TrainService();
+            List<List<Integer>> seats = train.getSeats();
+            if (row >= 0 && row < seats.size() && column >= 0 && column < seats.get(row).size()) {
+                if (seats.get(row).get(column) == 0) {
+                    seats.get(row).set(column, 1);
+                    train.setSeats(seats);
+                    trainService.addTrain(train);
+                    return true;
+                } else {
+                    return false;
+                }
+            } else {
+                return false;
+            }
+        } catch (Exception e) {
+            return Boolean.FALSE;
+        }
     }
 
 }
