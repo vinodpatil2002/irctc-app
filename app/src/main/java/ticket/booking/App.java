@@ -105,6 +105,18 @@ public class App {
                     }
                     break;
                 case 6:
+                    System.out.println("Are you sure about cancelling your ticket ?? (y/n)");
+                    char choice = s.next().charAt(1);
+                    if (choice == 'y' || choice == 'Y') {
+                        System.out.println("Enter your ticket ID:");
+                        String ticketId = s.next();
+                        boolean cancelled = userBookingService.cancelBooking(ticketId);
+                        if (cancelled) {
+                            System.out.println("Ticket cancelled successfully!");
+                        } else {
+                            System.out.println("Failed to cancel ticket. Please verify the ticket ID.");
+                        }
+                    }
                     break;
                 case 7:
                     System.err.println("Ending your session.! ");
