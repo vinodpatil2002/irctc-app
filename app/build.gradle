@@ -16,14 +16,12 @@ repositories {
 }
 
 dependencies {
-    // Use JUnit Jupiter for testing.
-    testImplementation libs.junit.jupiter
-
+    testImplementation 'org.junit.jupiter:junit-jupiter:5.10.0'
     testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
-
-    // This dependency is used by the application.
-    implementation libs.guava
-    implementation 'com.fasterxml.jackson.core:jackson-databind:2.12.6'
+    implementation 'com.google.guava:guava:32.1.2-jre'
+    implementation 'com.fasterxml.jackson.core:jackson-core:2.15.2'
+    implementation 'com.fasterxml.jackson.core:jackson-databind:2.15.2'
+    implementation 'com.fasterxml.jackson.core:jackson-annotations:2.15.2'
     implementation 'org.mindrot:jbcrypt:0.4'
 }
 
@@ -35,8 +33,7 @@ java {
 }
 
 application {
-    // Define the main class for the application.
-    mainClass = 'org.example.App'
+    mainClass = 'ticket.booking.App'
 }
 
 tasks.named('test') {

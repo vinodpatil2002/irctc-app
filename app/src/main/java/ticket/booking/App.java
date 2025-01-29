@@ -20,7 +20,8 @@ public class App {
         try {
             userBookingService = new UserBookingService();
         } catch (Exception e) {
-            System.err.println("There is something wrong");
+            System.err.println("There is something wrong"+e.getMessage());
+            e.printStackTrace();
             s.close();
             return;
         }
@@ -126,5 +127,9 @@ public class App {
             }
         }
         s.close();
+    }
+
+    public String getGreeting() {
+        return "Hello, Gradle!";
     }
 }

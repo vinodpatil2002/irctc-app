@@ -1,16 +1,16 @@
 [
   {
-    "user_i d": "12345",
+    "userId": "12345",
     "name": "vinod",
-    "hashed_password": "avbsd25452mngri",
+    "hashedPassword": "avbsd25452mngri",
     "ticketsBooked": [
       {
         "source": "Bangalore",
         "destination": "Delhi",
-        "date_of_travel": "2024-01-21T18:30:00Z",
+        "dateOfTravel": "2024-01-21T18:30:00Z",
         "train": {
           "trainId": "bacs",
-          "train_no": 12345,
+          "trainNo": 12345,
           "seats": [
             [0,0,0,0,0,0],
             [0,0,0,0,0,0],

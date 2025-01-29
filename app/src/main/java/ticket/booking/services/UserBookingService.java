@@ -17,7 +17,7 @@ public class UserBookingService {
     private User user;
     private List<User> userList;
     private ObjectMapper object_mapper = new ObjectMapper();
-    private final String USERS_PATH = "app/src/main/java/ticket/booking/localDb/users.json";
+    private final String USERS_PATH = "/home/vinod/vinod-work/java-be/irctc/app/src/main/java/ticket/booking/localDb/users.json";
 
     public UserBookingService(User user) throws IOException {
         this.user = user;
